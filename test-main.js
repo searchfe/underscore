@@ -2,6 +2,15 @@
  * @file testMain 测试脚本载入器
  * @author harttle(yangjvn@126.com)
  */
+var allTestFiles = [];
+var TEST_REGEXP = /test\/.*\.js$/i;
+
+Object.keys(window.__karma__.files).forEach(function (file) {
+    if (TEST_REGEXP.test(file)) {
+        var normalizedTestModule = file.replace(/^\/base\/|\.js$/g, '');
+        allTestFiles.push(normalizedTestModule);
+    }
+});
 
 require.config({
     baseUrl: '/base',
@@ -13,7 +22,7 @@ require.config({
 
 require.config({
     baseUrl: '/base',
-    deps: ['test/index'],
+    deps: allTestFiles,
     paths: {
         '@searchfe/assert': 'amd_modules/@searchfe/assert',
         '@searchfe/underscore': 'src/index'
