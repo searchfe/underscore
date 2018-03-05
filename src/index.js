@@ -334,10 +334,18 @@ define(function (require) {
      * @return {any} Returns the cloned value.
      */
     function clone (value) {
+        var ret;
+        if (isArray(value)) {
+            ret = [];
+            value.forEach(function (item) {
+                ret.push(clone(item));
+            });
+            return ret;
+        }
         if (!isObject(value)) {
             return value;
         }
-        var ret = {};
+        ret = {};
         forOwn(value, function (val, key) {
             ret[key] = val;
         });
@@ -351,13 +359,21 @@ define(function (require) {
      * @return {any} Returns the cloned value.
      */
     function cloneDeep (value) {
+        var ret;
         if (isFunction(value)) {
             return value;
+        }
+        if (isArray(value)) {
+            ret = [];
+            value.forEach(function (item) {
+                ret.push(cloneDeep(item));
+            });
+            return ret;
         }
         if (!isObject(value)) {
             return value;
         }
-        var ret = {};
+        ret = {};
         forOwn(value, function (val, key) {
             ret[key] = cloneDeep(val);
         });

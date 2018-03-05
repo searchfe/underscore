@@ -11,6 +11,11 @@ define(function (require) {
         it('should handle number', function () {
             expect(_.clone(432)).to.equal(432);
         });
+        it('should handle array', function () {
+            var ret = _.clone([8, '9']);
+            expect(ret).to.deep.equal([8, '9']);
+            expect(ret.forEach).to.be.a('function');
+        });
         it('should clone object', function () {
             var a = {foo: 'FOO'};
             var b = _.clone(a);
