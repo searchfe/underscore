@@ -13,7 +13,7 @@
 
  0. 用于 Web 端要控制代码量（目前 gzipped 1.5k）
  1. 与 Lodash 重合的功能保持接口一致: https://github.com/exports/exports
- 2. Lodash 中不包含的部分，如有需要可自行添加。文档：`/doc.md`。
+ 2. Lodash 中不包含的部分，如有需要可自行添加。文档：[/doc.md][doc]。
 
  ## 独立打包
 
@@ -23,3 +23,5 @@
  npm run dist
  npm run gzip
  ```
+
+[doc]: https://github.com/searchfe/underscore/blob/master/doc.md
