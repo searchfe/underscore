@@ -51,19 +51,16 @@ module.exports = function (config) {
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
         reporters: ['mocha'],
-        htmlReporter: {
-            outputDir: 'test-reports/result'
-        },
         coverageReporter: {
             reporters: [
                 {
                     type: 'html',
-                    dir: 'test-reports/coverage' // relative to basePath
+                    dir: 'coverage' // relative to basePath
                 }, {
                     type: 'text-summary'
                 }, {
                     type: 'lcov',
-                    dir: 'test-reports/coverage'
+                    dir: 'coverage/'
                 }
             ]
         },
