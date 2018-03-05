@@ -1,0 +1,5 @@
+node_modules
+amd_modules
+*.min.js.gz
+*.min.js
+test-reports

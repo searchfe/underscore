@@ -1,0 +1,56 @@
+{
+  "name": "@searchfe/underscore",
+  "version": "1.0.0",
+  "description": "JavaScript util functions",
+  "main": "src/index.js",
+  "scripts": {
+    "doc": "jsdoc2md src/index.js > doc.md",
+    "lint": "eslint src test test-main.js",
+    "preversion": "npm run lint && npm run test && npm run doc",
+    "postversion": "git push --tags",
+    "dist": "uglifyjs src/index.js -m > _.min.js",
+    "gzip": "gzip _.min.js",
+    "test": "karma start --reporters mocha",
+    "ci": "karma start --reporters mocha,coverage,coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/searchfe/underscore.git"
+  },
+  "author": "harttle <yangjvn@126.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/searchfe/underscore/issues"
+  },
+  "homepage": "https://github.com/searchfe/underscore#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.18.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-mocha": "^4.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jsdoc-to-markdown": "^4.0.1",
+    "karma": "^1.5.0",
+    "karma-chai": "^0.1.0",
+    "karma-chai-sinon": "^0.1.5",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-coveralls": "^1.1.2",
+    "karma-global-preprocessor": "0.0.2",
+    "karma-html-reporter": "^0.2.7",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.0.4",
+    "karma-requirejs": "^1.1.0",
+    "mocha": "^5.0.1",
+    "requirejs": "^2.3.5",
+    "sinon": "^4.4.2",
+    "sinon-chai": "^2.14.0",
+    "uglifyjs": "^2.4.11"
+  },
+  "amdDependencies": {
+    "@searchfe/assert": "^1.0.0"
+  }
+}
