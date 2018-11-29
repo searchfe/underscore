@@ -1,6 +1,6 @@
 {
   "name": "@searchfe/underscore",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JavaScript util functions",
   "main": "src/index.js",
   "scripts": {
