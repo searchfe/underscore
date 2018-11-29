@@ -662,6 +662,41 @@ define(function (require) {
         return subClass;
     }
 
+    /**
+     * The base implementation of `_.propertyOf` without support for deep paths.
+     *
+     * @private
+     * @param {Object} object The object to query.
+     * @returns {Function} Returns the new accessor function.
+    */
+    function basePropertyOf (object) {
+        return function (key) {
+            return object == null ? undefined : object[key];
+        };
+    }
+
+    /**
+     * Converts the characters "&", "<", ">", '"', and "'" in string to their corresponding HTML entities
+     *
+     * @param {string} The string to escape
+     * @returns {string} Returns the escaped string
+     */
+    function escape (value) {
+        var htmlEscapes = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        };
+        var reUnescapedHtml = /[&<>"']/g;
+        var reHasUnescapedHtml = RegExp(reUnescapedHtml.source);
+        var escapeHtmlChar = basePropertyOf(htmlEscapes);
+        return (value && reHasUnescapedHtml.test(value))
+            ? value.replace(reUnescapedHtml, escapeHtmlChar)
+            : value;
+    }
+
     // objectect Related
     exports.keysIn = keysIn;
     exports.keys = keys;
@@ -691,6 +726,7 @@ define(function (require) {
     // String Related
     exports.split = split;
     exports.format = format;
+    exports.escape = escape;
 
     // Lang Related
     exports.isArray = isArray;
