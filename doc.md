@@ -35,6 +35,7 @@ A lightweight underscore implementation.
     * [.partialRight(func, ...partials)](#underscore.partialRight) ⇒ <code>function</code>
     * [.wrap(value, wrapper)](#underscore.wrap) ⇒ <code>function</code>
     * [.inherits(subClass, superClass)](#underscore.inherits) ⇒ <code>function</code>
+    * [.escape(value)](#underscore.escape) ⇒ <code>string</code>
 
 <a name="underscore.keysIn"></a>
 
@@ -423,4 +424,16 @@ Any additional arguments provided to the function are appended to those provided
 | --- | --- | --- |
 | subClass | <code>function</code> | 子类构造器 |
 | superClass | <code>function</code> | 父类构造器 |
+
+<a name="underscore.escape"></a>
+
+### underscore.escape(value) ⇒ <code>string</code>
+Converts the characters "&", "<", ">", '"', and "'" in string to their corresponding HTML entities
+
+**Kind**: static method of [<code>underscore</code>](#underscore)  
+**Returns**: <code>string</code> - Returns the escaped string  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>string</code> | The string to escape |
 

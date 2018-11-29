@@ -678,8 +678,9 @@ define(function (require) {
     /**
      * Converts the characters "&", "<", ">", '"', and "'" in string to their corresponding HTML entities
      *
-     * @param {string} The string to escape
+     * @param {string} value The string to escape
      * @returns {string} Returns the escaped string
+     * @memberof underscore
      */
     function escape (value) {
         var htmlEscapes = {
